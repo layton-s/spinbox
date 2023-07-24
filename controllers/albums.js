@@ -21,6 +21,8 @@ async function index(req, res) {
     const title = user.googleId ? `${user.name}'s SpinBox` : 'Your Albums';
   
     res.render('albums/index', { title, albums });
+
+    
   }
 
 async function show(req, res) {

@@ -39,7 +39,7 @@ body > main {
 }
 
 body > main h1:first-child {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -60,4 +60,184 @@ nav > a.active {
   color: #000; 
   cursor: default;
   background-color: #00af91; 
+}
+#new-form,
+#add-review-form,
+#add-genre-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+  background-color: #00af91; 
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+#new-form *,
+#add-review-form *,
+#add-genre-form * {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  color: #1e1e1e; 
+}
+
+#new-form input[type="submit"] {
+  grid-column: span 2;
+  width: 10rem;
+  margin-left: auto;
+  background-color: #ffffff; 
+  color: #1e1e1e; 
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#new-form input[type="submit"]:hover {
+  background-color: #e2e2e2; 
+}
+
+table {
+  font-size: 18px; 
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+table thead th {
+  padding: 10px; 
+  font-family: 'Montserrat', sans-serif;
+  background-color: #00af91; 
+  color: #ffffff; 
+  border-bottom: 2px solid #424748;
+}
+
+table td {
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: #f2f2f2; 
+  color: #1e1e1e; 
+  border-bottom: 1px solid #e2e2e2; 
+}
+
+/* #list td:nth-child(2), #list td:nth-child(3){
+  min-width: 100px;
+} */
+
+#list a {
+  border-radius: 4px;
+  background-color: #00af91; 
+  color: #ffffff; 
+  padding: 4px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+#list a:hover {
+  background-color: #ffffff; 
+  color: #00af91; 
+}
+
+#show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+
+#show-page div:nth-child(even) {
+  font-weight: bold;
+}
+
+#add-review-form,
+#add-genre-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#add-review-form input[type="submit"],
+#add-genre-form input[type="submit"]  {
+  width: 10rem;
+  grid-column: 2 / 3;
+}
+
+hr {
+  color: #B8C0C2; 
+}
+
+#badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  border: 2px solid #00af91; 
+  border-radius: .5rem;
+  margin: .5rem 0 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.badge {
+  background-color: #B8C0C2;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: .3rem;
+  font-size: .8rem;
+  text-align: center;
+}
+
+#show-page ul {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+  
+#show-page li {
+  font-weight: bold;
+}
+
+.googleLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+  font-size: 18px;
+  background-color: #ffffff; 
+  border: 1px solid #e0e0e0; 
+  border-radius: 4px; 
+  padding: 10px; 
+  width: 200px; 
+}
+
+.googleButton {
+  text-decoration: none;
+  color: #1e1e1e; 
+}
+
+
+.googleButton:hover {
+  background-color: #f5f5f5; 
+}
+
+.googleLogin img {
+  height: 25px;
+}
+
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+ 
 }

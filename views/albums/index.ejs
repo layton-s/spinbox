@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
-
+<% if (user.googleId) { %>
+  <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Avatar` %>" class = "user-avatar" />
+<% } %>
 <table id="list">
   <thead>
     <tr>
