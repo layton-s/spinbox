@@ -9,11 +9,11 @@
     </tr>
   </thead>
   <tbody>
-    <% albums.forEach(function(m) { %>
+    <% albums.forEach(function(a) { %>
       <tr>
-        <td><%= m.title %></td>
-        <td><%= m.artist %></td>
-        <td><a href="/albums/<%= m._id %>">DETAILS</a></td>
+        <td><%= a.title %></td>
+        <td><%= a.artist %></td>
+        <td><a href="/albums/<%= a._id %>">DETAILS</a></td>
       </tr>
       <% }); %>
     </tbody>

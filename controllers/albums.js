@@ -18,7 +18,7 @@ async function index(req, res) {
     const albums = await Album.find({});
   
     // Check if the user is logged in with Google and has a name
-    const title = user.googleId ? `${user.name}'s Albums` : 'Your Albums';
+    const title = user.googleId ? `${user.name}'s SpinBox` : 'Your Albums';
   
     res.render('albums/index', { title, albums });
   }
