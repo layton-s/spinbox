@@ -1,0 +1,84 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Title: </div>
+    <div><%= album.title %></div>
+    <div>Artist: </div>
+    <div><%= album.artist %></div>
+    <div>Release Year: </div>
+    <div><%= album.releaseYear %></div>
+    <div>Label: </div>
+    <div><%= album.label %></div>
+    
+  
+    <div>Genres:</div>
+    <ul>
+      <%- album.genreList.map(p => 
+        `<li>${p.name}</li>`
+      ).join('') %>
+    </ul>
+    
+  </section>
+  
+  <form id="add-per-to-cast" action="/albums/<%= album._id %>/genres" method="POST">
+    <select name="genreId">
+     
+      <%- genres.map(p => 
+        `<option value="${p._id}">${p.name}</option>`
+      ).join('') %>
+    </select>
+    <button type="submit">Add to List</button>
+  </form>
+  
+  <br><br><h2>Reviews</h2>
+  <form id="add-review-form" method="POST"
+    action="/albums/<%= album._id %>/reviews">
+    <label>Review:</label>
+    <textarea name="content"></textarea>
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5" selected>5</option>
+    </select>
+    <input type="submit" value="Add Review">
+  </form>
+  
+  <% if (album.reviews.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total = 0 %>
+        <% album.reviews.forEach(function(r) { %>
+          <% total += r.rating %>
+          <tr>
+            <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
+            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td><%= r.content %></td>
+            <td><%= r.rating %></td>
+            <td>
+              <% if (user?._id.equals(r.user)) { %>
+                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                  <button type="submit">X</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>Let the world know how you feel about this album!</h5>
+  <% } %>
+    
+  <%- include('../partials/footer') %>
