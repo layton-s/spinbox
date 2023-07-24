@@ -13,8 +13,8 @@
   
     <div>Genres:</div>
     <ul>
-      <%- album.genreList.map(p => 
-        `<li>${p.name}</li>`
+      <%- album.genreList.map(g => 
+        `<li class ="genre-item">${g.name}</li>`
       ).join('') %>
     </ul>
     
@@ -30,31 +30,32 @@
     <button type="submit">Add to List</button>
   </form>
   
-  <br><br><h2>Reviews</h2>
-  <form id="add-review-form" method="POST"
-    action="/albums/<%= album._id %>/reviews">
-    <label>Review:</label>
-    <textarea name="content"></textarea>
-    <label>Rating:</label>
-    <select name="rating">
-      <option value="1">1</option>
-      <option value="1.5">1.5</option>
-      <option value="2">2</option>
-      <option value="2.5">2.5</option>
-      <option value="3">3</option>
-      <option value="3.5">3.5</option>
-      <option value="4">4</option>
-      <option value="4.5">4.5</option>
-      <option value="5" selected>5</option>
-    </select>
-    <input type="submit" value="Add Review">
-  </form>
+  <% if (user && album.reviews.some(r => user._id.equals(r.user))) { %>
+    <p>You have already submitted a review for this album.</p>
+<% } else { %>
+    <form id="add-review-form" method="POST" action="/albums/<%= album._id %>/reviews">
+        <label>Review:</label>
+        <textarea name="content"></textarea>
+        <label>Rating:</label>
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
+            <option value="4.5">4.5</option>
+            <option value="5" selected>5</option>
+        </select>
+        <input type="submit" value="Add Review">
+    </form>
+<% } %>
   
   <% if (album.reviews.length) { %>
     <table>
       <thead>
-        <tr>
-          <th>User</th>
+        <tr class>
           <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
@@ -62,11 +63,8 @@
         </tr>
       </thead>
       <tbody>
-        <% let total = 0 %>
         <% album.reviews.forEach(function(r) { %>
-          <% total += r.rating %>
           <tr>
-            <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
             <td><%= r.createdAt.toLocaleDateString() %></td>
             <td><%= r.content %></td>
             <td><%= r.rating %></td>
@@ -81,8 +79,10 @@
         <% }); %>
       </tbody>
     </table>
+    
   <% } else { %>
-    <h5>Let the world know how you feel about this album!</h5>
+    <h2>Let the world know how you feel about this album!</h2>
   <% } %>
+  
     
   <%- include('../partials/footer') %>

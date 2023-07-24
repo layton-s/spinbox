@@ -28,7 +28,7 @@ async function index(req, res) {
 async function show(req, res) {
   const album = await Album.findById(req.params.id).populate('genreList');
   const genres = await Genre.find({ _id: { $nin: album.genreList } }).sort('name');
-  res.render('albums/show', { title: 'Album Detail', album, genres });
+  res.render('albums/show', { title: 'Album Details', album, genres });
 }
 
 function newAlbum(req, res) {
