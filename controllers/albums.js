@@ -9,20 +9,10 @@ module.exports = {
 };
 
 async function index(req, res) {
-    if (!req.user) {
-      // Handle case when the user is not authenticated
-      const albums = await Album.find({});
-      return res.render('albums/index', { title: 'Your Albums', albums });
-    }
     const user = req.user;
     const albums = await Album.find({});
-  
-    // Check if the user is logged in with Google and has a name
     const title = user.googleId ? `${user.name}'s SpinBox` : 'Your Albums';
-  
     res.render('albums/index', { title, albums });
-
-    
   }
 
 async function show(req, res) {

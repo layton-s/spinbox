@@ -30,9 +30,12 @@
     <button type="submit">Add to List</button>
   </form>
   
-  <% if (user && album.reviews.some(r => user._id.equals(r.user))) { %>
+  <% if (album.reviews.some(function(r) { return r.user; })) { %>
+    <!-- Check if the 'user' is defined and if there exists at least one review in the 'album.reviews' array 
+       where the 'user._id' matches the 'user' property of the review. If true, it means the user has already 
+       submitted a review for this album. -->
     <p>You have already submitted a review for this album.</p>
-<% } else { %>
+  <% } else { %>
     <form id="add-review-form" method="POST" action="/albums/<%= album._id %>/reviews">
         <label>Review:</label>
         <textarea name="content"></textarea>

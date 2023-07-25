@@ -1,6 +1,10 @@
 <%- include('../partials/header') %>
 <% if (user.googleId) { %>
-  <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Avatar` %>" class = "user-avatar" />
+  <!-- Display Google Avatar -->
+  <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Google Avatar` %>" class="user-avatar" />
+<% } else if (user.spotifyId) { %>
+  <!-- Display Spotify Avatar -->
+  <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Spotify Avatar` %>" class="user-avatar" />
 <% } %>
 <table id="list">
   <thead>

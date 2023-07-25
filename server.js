@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 app.use(session({
-  secret: process.env.SECRET,
+  secret: '1234',
   resave: false,
   saveUninitialized: true
 }));

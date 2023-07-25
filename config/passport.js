@@ -1,6 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user');
+const SpotifyStrategy = require('passport-spotify').Strategy
 
 passport.use(new GoogleStrategy(
   // Configuration object
@@ -34,11 +35,45 @@ passport.use(new GoogleStrategy(
   }
 ));
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user._id);
+passport.use(new SpotifyStrategy(
+  {
+    clientID: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_SECRET,
+    callbackURL: process.env.SPOTIFY_CALLBACK
+  },
+  async function(accessToken, refreshToken, expires_in, profile, done) {
+    // When using async/await, we use a try/catch block to handle errors
+    try {
+      // A user has logged in with Spotify OAuth...
+      let user = await User.findOne({ spotifyId: profile.id });
+      // Existing user found, so provide it to passport
+      if (user) return done(null, user);
+
+    
+
+      // We have a new user via Spotify OAuth!
+      user = await User.create({
+        name: profile.displayName,
+        spotifyId: profile.id,
+        avatar: profile.photos[0].value 
+      });
+
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id); // Assuming you have a unique 'id' field for the user
 });
 
-passport.deserializeUser(async function(userId, cb) {
-  // It's nice to be able to use await in-line!
-  cb(null, await User.findById(userId));
+passport.deserializeUser(async function(id, done) {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
 });

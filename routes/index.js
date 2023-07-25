@@ -7,15 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: '' });
 });
 
-module.exports = router;
-
-
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
-  // Which passport strategy is being used?
   'google',
   {
-    // Requesting the user's profile and email
     scope: ['profile', 'email'],
     // Optionally force pick account every time
     // prompt: "select_account"
@@ -25,6 +20,24 @@ router.get('/auth/google', passport.authenticate(
 // Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate(
   'google',
+  {
+    successRedirect: '/albums',
+    failureRedirect: '/albums'
+  }
+));
+
+// Spotify OAuth login route
+router.get('/auth/spotify', passport.authenticate(
+  'spotify',
+  {
+    // Requesting the user's public profile
+    scope: ['user-read-email', 'user-read-private'],
+  }
+));
+
+// Spotify OAuth callback route
+router.get('/auth/spotify/callback', passport.authenticate(
+  'spotify',
   {
     successRedirect: '/albums',
     failureRedirect: '/albums'
