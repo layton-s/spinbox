@@ -22,11 +22,12 @@ body > nav {
   padding: 0 30px;
 }
 
-nav > img {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
+nav > img{
+  height: 40px;
+  margin-right: 20px; 
 }
+
+
 
 body > main {
   grid-area: main;
@@ -301,3 +302,6 @@ hr {
   margin-bottom: 20px; 
 }
 
+.spinbox-logo {
+  height: 350px;
+}
