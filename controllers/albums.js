@@ -22,7 +22,7 @@ async function show(req, res) {
 }
 
 function newAlbum(req, res) {
-  res.render('albums/new', { title: 'Add Album', errorMsg: '' });
+  res.render('albums/new', { title: 'Expand your SpinBox', errorMsg: '' });
 }
 
 async function create(req, res) {

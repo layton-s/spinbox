@@ -13,17 +13,17 @@
 <table id="list">
   <thead>
     <tr>
-      <th>Title</th>
       <th>Artist</th>
+      <th>Title</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <% albums.forEach(function(a) { %>
       <tr>
-        <td><%= a.title %></td>
         <td><%= a.artist %></td>
-        <td><a href="/albums/<%= a._id %>">DETAILS</a></td>
+        <td><%= a.title %></td>
+        <td><a href="/albums/<%= a._id %>">SCORE</a></td>
       </tr>
       <% }); %>
     </tbody>
