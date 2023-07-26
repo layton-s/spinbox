@@ -5,7 +5,7 @@ const albumsCtrl = require('../controllers/albums');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 	
 // GET /albums
-router.get('/', ensureLoggedIn, albumsCtrl.index);
+router.get('/', albumsCtrl.index);
 // GET /albums/new
 router.get('/new', ensureLoggedIn, albumsCtrl.new);
 // GET /albums/:id 
