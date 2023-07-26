@@ -9,11 +9,10 @@ const userSchema = new Schema({
   },
   spotifyId: {
     type: String,
-    required: false // You can decide if you want to make this required or not
+    required: false,
   },
   email: String,
   avatar: String,
-  // Additional Spotify-specific fields you may want to store
   // spotifyAccessToken: String,
   // spotifyRefreshToken: String,
   // spotifyDisplayName: String,

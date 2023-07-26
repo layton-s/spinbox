@@ -1,8 +1,17 @@
-// Middleware for routes that require a logged in user
 module.exports = function(req, res, next) {
-    // Pass the req/res to the next middleware/route handler
-    if ( req.isAuthenticated() ) return next();
-    // Redirect to login if the user is not already logged in
-    res.redirect('/auth/google');
+  
+  if (req.isAuthenticated() && (req.user.googleId || req.user.spotifyId)) {
+    return next();
   }
+
+  
+  if (req.user && req.user.googleId) {
+    res.redirect('/auth/google');
+  } else if (req.user && req.user.spotifyId) {
+    res.redirect('/auth/spotify');
+  } else {
+ 
+    res.redirect('/'); 
+  }
+};
   

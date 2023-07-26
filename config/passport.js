@@ -14,6 +14,8 @@ passport.use(new GoogleStrategy(
   // Marking a function as an async function allows us
   // to consume promises using the await keyword
   async function(accessToken, refreshToken, profile, cb) {
+    console.log(profile);
+    
     // When using async/await  we use a
     // try/catch block to handle an error
     try {
@@ -29,51 +31,54 @@ passport.use(new GoogleStrategy(
         avatar: profile.photos[0].value
       });
       return cb(null, user);
+      
     } catch (err) {
       return cb(err);
     }
   }
 ));
 
+
 passport.use(new SpotifyStrategy(
   {
     clientID: process.env.SPOTIFY_CLIENT_ID,
     clientSecret: process.env.SPOTIFY_SECRET,
-    callbackURL: process.env.SPOTIFY_CALLBACK
+    callbackURL: process.env.SPOTIFY_CALLBACK,
+    userProfileURL: 'https://api.spotify.com/v1/me'
   },
-  async function(accessToken, refreshToken, expires_in, profile, done) {
-    // When using async/await, we use a try/catch block to handle errors
+  async function(accessToken, refreshToken, profile, cb) {
+    console.log(profile);
     try {
-      // A user has logged in with Spotify OAuth...
+
       let user = await User.findOne({ spotifyId: profile.id });
-      // Existing user found, so provide it to passport
-      if (user) return done(null, user);
 
-    
+     
+      if (user) return cb(null, user);
 
-      // We have a new user via Spotify OAuth!
+      
       user = await User.create({
         name: profile.displayName,
         spotifyId: profile.id,
+        email: profile.emails[0].value,
         avatar: profile.photos[0].value 
       });
-
-      return done(null, user);
+      
+      return cb(null, user);
     } catch (err) {
-      return done(err);
+      return cb(err);
     }
   }
 ));
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id); // Assuming you have a unique 'id' field for the user
+passport.serializeUser(function(user, cb) {
+  cb(null, user.id); // Assuming you have a unique 'id' field for the user
 });
 
-passport.deserializeUser(async function(id, done) {
+passport.deserializeUser(async function(id, cb) {
   try {
     const user = await User.findById(id);
-    done(null, user);
+    cb(null, user);
   } catch (err) {
-    done(err);
+    cb(err);
   }
 });

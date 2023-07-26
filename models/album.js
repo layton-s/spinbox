@@ -29,7 +29,7 @@ const albumSchema = new Schema({
     default: function() {
       return new Date().getFullYear();
     },
-    min: 1927
+    min: 1900
   },
   label: {
     type: String,

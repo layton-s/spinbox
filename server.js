@@ -11,8 +11,8 @@ require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
-var indexRouter = require('./routes/index');
-var albumsRouter = require('./routes/albums');
+const indexRouter = require('./routes/index');
+const albumsRouter = require('./routes/albums');
 const reviewsRouter = require('./routes/reviews');
 const genresRouter = require('./routes/genres');
 
