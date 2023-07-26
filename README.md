@@ -14,7 +14,6 @@ SpinBox is an app that caters to music enthusiasts, where users can curate album
 ![Alt text](public/images/image4.png)
 
 ## Technologies Used
-- HTML
 - CSS
 - JavaScript
 - EJS

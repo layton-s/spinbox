@@ -16,7 +16,7 @@ async function addToList(req, res) {
 
 async function newGenre(req, res) {
   const genres = await Genre.find({}).sort('name');
-  res.render('genres/new', { title: 'Add Genre', genres });
+  res.render('genres/new', { title: 'My Genre Vault', genres });
 }
 
 async function create(req, res) {

@@ -7,7 +7,7 @@
 
 <% if (user.spotifyId) { %>
   <!-- Display Spotify Avatar -->
-  <img src="https://i.imgur.com/qvdqtsc.png" alt="<%= `${user.name}'s Spotify Avatar` %>" class="user-avatar" />
+  <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Spotify Avatar` %>" class="user-avatar" />
 <% } %>
 
 <table id="list">

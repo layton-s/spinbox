@@ -13,9 +13,9 @@
 <body>
   <nav>
     <% if (user) { %>
-    <a href="/albums" <%- title === 'All Albums' ? 'class="active"' : '' %>>YOUR SPINBOX</a>
+      <a href="/albums" <%- title === 'All Albums' ? 'class="active"' : '' %>>MY SPINBOX</a>
       <a href="/genres/new"	<%- title === 'Add Genre' ? 'class="active"' : '' %>>
-      YOUR GENRES</a>
+      GENRE VAULT</a>
       <a href="/albums/new" <%- title === 'Add Album' ? 'class="active"' : '' %>>NEW ALBUM</a>
       <a href="/logout">LOG OUT</a>
       <% } else { %>

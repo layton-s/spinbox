@@ -153,6 +153,7 @@ table td {
 #add-genre-form input[type="submit"]  {
   width: 10rem;
   grid-column: 2 / 3;
+  
 }
 
 hr {

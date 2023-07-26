@@ -11,7 +11,7 @@ module.exports = {
 async function index(req, res) {
     const user = req.user;
     const albums = await Album.find({});
-    const title = user.googleId ? `${user.name}'s SpinBox` : (user.spotifyId ? `${user.name}'s SpinBox` : 'Your Albums');
+    title = user.googleId ? `${user.name}'s SpinBox` : (user.spotifyId ? `${user.name}'s SpinBox` : 'Your Albums');
     res.render('albums/index', { title, albums });
   }
 

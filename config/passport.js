@@ -71,7 +71,7 @@ passport.use(new SpotifyStrategy(
 ));
 
 passport.serializeUser(function(user, cb) {
-  cb(null, user.id); // Assuming you have a unique 'id' field for the user
+  cb(null, user.id); 
 });
 
 passport.deserializeUser(async function(id, cb) {

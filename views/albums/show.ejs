@@ -70,7 +70,7 @@
           <tr>
             <td><%= r.createdAt.toLocaleDateString() %></td>
             <td><%= r.content %></td>
-            <td class="rating"><%= r.rating %></td>
+            <td><%= r.rating %></td>
             <td>
               <% if (user?._id.equals(r.user)) { %>
                 <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">

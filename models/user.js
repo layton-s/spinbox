@@ -13,10 +13,6 @@ const userSchema = new Schema({
   },
   email: String,
   avatar: String,
-  // spotifyAccessToken: String,
-  // spotifyRefreshToken: String,
-  // spotifyDisplayName: String,
-  // spotifyProfileImage: String,
 }, {
   timestamps: true
 });
