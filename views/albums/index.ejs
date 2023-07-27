@@ -2,12 +2,10 @@
 
 
 <% if (user.googleId) { %>
-  <!-- Display Google Avatar -->
   <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Google Avatar` %>" class="user-avatar" />
 <% } %>
 
 <% if (user.spotifyId) { %>
-  <!-- Display Spotify Avatar -->
   <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Spotify Avatar` %>" class="user-avatar" />
 <% } %>
 
@@ -38,7 +36,7 @@
 
   <% if (user.googleId) { %>
   <div class="spinbox-logo">
-    <img src="https://i.imgur.com/SE83GSC.png" alt="spinbox-logo" class="spinbox-logo" />
+    <img src="/images/sgraphicmain.png" alt="spinbox-logo" class="spinbox-logo" />
   </div>
 <% } %>
 
@@ -46,7 +44,7 @@
     <a href="https://open.spotify.com/user/<%= user.spotifyId %>">
       <img src="https://i.imgur.com/qvdqtsc.png" alt="<%= `${user.name}'s Spotify Profile` %>" class="spotifyProfileLink" />
     </a>
-    <h3>Tune In Now!</h3>
+    <h4>Your Top Artists</h4>
   <% } %>
   
 <%- include('../partials/footer') %>

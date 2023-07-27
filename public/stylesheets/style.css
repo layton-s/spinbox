@@ -59,23 +59,44 @@ nav > a.active {
 #new-form {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
-  background-color: #00af91;
+  grid-template-columns: 1fr 2fr; 
+  background-image: linear-gradient(to right, #00af91, #00af91);
+  background-size: 150% 150%;
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  height: 300px;
 }
 
 #new-form input[type="text"],
 #new-form textarea {
-  padding: 10px;
+  padding: 7px;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   border: none;
   border-radius: 8px;
+  border: solid black 1px;
   background-color: #fff;
-  width: 100%;
+  width: 90%;
+}
+
+#new-form input[type="submit"] {
+  grid-column: span 2;
+  font-family: 'Montserrat', sans-serif;
+  width: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 22px;
+  color: #fff;
+  background-color: #00af91;
+  border: solid black 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#new-form input[type="submit"]:hover {
+  background-color: #009e86;
 }
 
 #add-review-form {
@@ -88,17 +109,43 @@ nav > a.active {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
+#add-review-form input[type="submit"]:hover {
+  background-color: #009e86;
+}
+
 
 #add-genre-form {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, minmax(auto, 22rem));
-  background-image: linear-gradient(to right, #00af91, cyan, green);
-  background-size: 150% 150%;
-  animation: rainbow 5s linear infinite;
+  background-image: linear-gradient(to right, #00af91, #00af91);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+#add-genre-form input[type="submit"]  {
+  grid-column: span 2;
+  width: 150px;
+  margin: 20px auto;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  font-size: 25px;
+  color: #fff;
+  background-color: #00af91;
+  border-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#add-genre-form input[type="submit"]:hover {
+  background-color: #009e86;
+}
+
+#add-genre-form input[type="text"] {
+  width: 87%;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #new-form *,
@@ -108,24 +155,6 @@ nav > a.active {
   padding: 5px;
   border-radius: 5px;
   color: #1e1e1e; 
-}
-
-#new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 150px;
-  margin: 20px auto;
-  padding: 10px;
-  font-size: 27px;
-  color: #fff;
-  background-color: #00af91;
-  border: solid black 1px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-#new-form input[type="submit"]:hover {
-  background-color: #009e86;
 }
 
 table {
@@ -193,7 +222,6 @@ table td {
   border: solid black 1px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
 }
 
 textarea {
@@ -207,24 +235,10 @@ textarea {
   min-height: 150px;
 }
 
-#add-genre-form input[type="submit"]  {
-  grid-column: span 2;
-  width: 150px;
-  margin: 20px auto;
-  padding: 10px;
-  font-size: 25px;
-  color: #fff;
-  background-color: #00af91;
-  /* border: solid .5px; */
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  
-}
-
 hr {
   color: #B8C0C2; 
 }
+
 
 #genre-container {
   display: flex;
@@ -245,8 +259,6 @@ hr {
   text-align: center;
   display: inline-block;
   background-image: linear-gradient(to right, #00af91, cyan, green);
-  /* background-size: 150% 150%;
-  animation: rainbow 5s linear infinite; */
   color: #333; 
   font-weight: bold;
 }
@@ -366,6 +378,12 @@ hr {
 .spotifyProfileLink {
   height: 100px;
   margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.spotifySearchLink {
+  height: 60px;
+  margin-top: 20px;
 }
 
 .delete-button {
@@ -379,4 +397,9 @@ hr {
 
 .delete-button:hover {
   background-color: #cc0000; 
+}
+
+.genre-graphic {
+  height: 450px;
+  width: 450px;
 }

@@ -29,11 +29,15 @@
     </select>
     <button type="submit">Add to List</button>
   </form>
+
+  <% if (user.spotifyId) { %>
+    <a href="https://open.spotify.com/search/<%= album.title + ' ' + album.artist %>" target="_blank">
+      <img src="https://i.imgur.com/qvdqtsc.png" alt="Search on Spotify" class="spotifySearchLink" />
+    </a>
+    <h4>Listen Here!</h4>
+  <% } %>
   
   <% if (album.reviews.some(function(r) { return r.user; })) { %>
-    <!-- Check if the 'user' is defined and if there exists at least one review in the 'album.reviews' array 
-       where the 'user._id' matches the 'user' property of the review. If true, it means the user has already 
-       submitted a review for this album. -->
     <p>You have already submitted a review for this album.</p>
   <% } else { %>
     <form id="add-review-form" method="POST" action="/albums/<%= album._id %>/reviews">
@@ -54,7 +58,7 @@
         <input type="submit" value="Add Review">
     </form>
 <% } %>
-  
+
   <% if (album.reviews.length) { %>
     <table>
       <thead>
