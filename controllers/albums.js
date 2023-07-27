@@ -5,7 +5,8 @@ module.exports = {
   index,
   show,
   new: newAlbum,
-  create
+  create,
+  delete: deleteAlbum
 };
 
 async function index(req, res) {
@@ -35,5 +36,20 @@ async function create(req, res) {
   } catch (err) {
     console.log(err);
     res.render('albums/new', { errorMsg: err.message });
+  }
+}
+
+async function deleteAlbum(req, res) {
+  try {
+    const album = await Album.findByIdAndDelete(req.params.id);
+
+    if (!album) {
+      return res.redirect('/albums/');
+    }
+
+    res.redirect('/albums/');
+  } catch (err) {
+    console.error(err);
+    res.redirect('/albums/');
   }
 }

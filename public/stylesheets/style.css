@@ -33,7 +33,7 @@ body > main {
 }
 
 body > main h1:first-child {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -56,7 +56,28 @@ nav > a.active {
   background-color: #00af91; 
 }
 
-#new-form,
+#new-form {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  background-color: #00af91;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+#new-form input[type="text"],
+#new-form textarea {
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 100%;
+}
+
 #add-review-form {
   display: grid;
   grid-gap: 10px;
@@ -66,11 +87,13 @@ nav > a.active {
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
+
+
 #add-genre-form {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, minmax(auto, 22rem));
-  background-image: linear-gradient(to right, #00af91, cyan, green, plum);
+  background-image: linear-gradient(to right, #00af91, cyan, green);
   background-size: 150% 150%;
   animation: rainbow 5s linear infinite;
   padding: 15px;
@@ -89,17 +112,20 @@ nav > a.active {
 
 #new-form input[type="submit"] {
   grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
-  background-color: #ffffff; 
-  color: #1e1e1e; 
-  border: none;
+  width: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 27px;
+  color: #fff;
+  background-color: #00af91;
+  border: solid black 1px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
 #new-form input[type="submit"]:hover {
-  background-color: #e2e2e2; 
+  background-color: #009e86;
 }
 
 table {
@@ -147,9 +173,6 @@ table td {
   grid-gap: 1rem;
 }
 
-#show-page div:nth-child(even) {
-  font-weight: bold;
-}
 
 #add-review-form,
 #add-genre-form {
@@ -159,10 +182,43 @@ table td {
   margin-bottom: 2rem;
 }
 
-#add-review-form input[type="submit"],
+#add-review-form input[type="submit"] {
+  grid-column: span 2;
+  width: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 25px;
+  color: #fff;
+  background-color: #00af91;
+  border: solid black 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+textarea {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  width: 100%;
+  min-height: 150px;
+}
+
 #add-genre-form input[type="submit"]  {
-  width: 10rem;
-  grid-column: 2 / 3;
+  grid-column: span 2;
+  width: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 25px;
+  color: #fff;
+  background-color: #00af91;
+  /* border: solid .5px; */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
   
 }
 
@@ -310,4 +366,17 @@ hr {
 .spotifyProfileLink {
   height: 100px;
   margin-top: 50px;
+}
+
+.delete-button {
+  background-color: #00af91; 
+  color: #ffffff; 
+  border: none;
+  padding: 4px 6px; 
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #cc0000; 
 }

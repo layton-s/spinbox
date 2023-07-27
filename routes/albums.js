@@ -12,5 +12,7 @@ router.get('/new', ensureLoggedIn, albumsCtrl.new);
 router.get('/:id', albumsCtrl.show);
 // POST /albums
 router.post('/', ensureLoggedIn, albumsCtrl.create);
+//DELETE /albums/:id
+router.delete('/:id', ensureLoggedIn, albumsCtrl.delete);
 	
 module.exports = router;

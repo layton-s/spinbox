@@ -11,14 +11,12 @@
   <img src="<%= user.avatar %>" alt="<%= `${user.name}'s Spotify Avatar` %>" class="user-avatar" />
 <% } %>
 
-
-
-
 <table id="list">
   <thead>
     <tr>
       <th>Artist</th>
       <th>Title</th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -28,11 +26,15 @@
         <td><%= a.artist %></td>
         <td><%= a.title %></td>
         <td><a href="/albums/<%= a._id %>">SCORE</a></td>
+        <td>
+            <form action="/albums/<%= a._id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit" class="delete-button">X</button>
+            </form>
+        </td>
       </tr>
       <% }); %>
     </tbody>
   </table>
-
 
   <% if (user.googleId) { %>
   <div class="spinbox-logo">
@@ -41,7 +43,6 @@
 <% } %>
 
   <% if (user.spotifyId) { %>
-    <!-- Display Spotify Avatar with link to Spotify profile -->
     <a href="https://open.spotify.com/user/<%= user.spotifyId %>">
       <img src="https://i.imgur.com/qvdqtsc.png" alt="<%= `${user.name}'s Spotify Profile` %>" class="spotifyProfileLink" />
     </a>
