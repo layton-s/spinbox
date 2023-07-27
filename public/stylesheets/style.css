@@ -57,12 +57,22 @@ nav > a.active {
 }
 
 #new-form,
-#add-review-form,
-#add-genre-form {
+#add-review-form {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, minmax(auto, 22rem));
   background-color: #00af91; 
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+#add-genre-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+  background-image: linear-gradient(to right, #00af91, cyan, green, plum);
+  background-size: 150% 150%;
+  animation: rainbow 5s linear infinite;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
@@ -178,9 +188,9 @@ hr {
   font-family: 'Merriweather', serif;
   text-align: center;
   display: inline-block;
-  background-image: linear-gradient(to right, #00af91, violet, cyan, green, plum);
-  background-size: 150% 150%;
-  animation: rainbow 5s linear infinite;
+  background-image: linear-gradient(to right, #00af91, cyan, green);
+  /* background-size: 150% 150%;
+  animation: rainbow 5s linear infinite; */
   color: #333; 
   font-weight: bold;
 }
@@ -244,17 +254,6 @@ hr {
   height: 25px;
 }
 
-.review-user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.review-user img {
-  border-radius: 50%;
-  height: 40px;
-}
-
 .user-avatar {
   border-radius: 50%;
   width: 100px;
@@ -308,3 +307,7 @@ hr {
   margin-top: -100px; /* Adjust this value to move the logo up or down */
 }
 
+.spotifyProfileLink {
+  height: 100px;
+  margin-top: 50px;
+}
