@@ -115,13 +115,11 @@ nav > a.active {
 
 
 #add-genre-form {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
   background-image: linear-gradient(to right, #00af91, #00af91);
-  padding: 15px;
+  padding: 9px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  
 }
 
 #add-genre-form input[type="submit"]  {
@@ -133,17 +131,18 @@ nav > a.active {
   font-size: 25px;
   color: #fff;
   background-color: #00af91;
-  border-color: black;
+  border: solid black 1px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 #add-genre-form input[type="submit"]:hover {
   background-color: #009e86;
+ 
 }
 
 #add-genre-form input[type="text"] {
-  width: 87%;
+  width: 85%;
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
 }
@@ -224,6 +223,8 @@ table td {
   cursor: pointer;
 }
 
+
+
 textarea {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -231,7 +232,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   resize: vertical;
-  width: 100%;
+  width: 93%;
   min-height: 150px;
 }
 
@@ -261,6 +262,10 @@ hr {
   background-image: linear-gradient(to right, #00af91, cyan, green);
   color: #333; 
   font-weight: bold;
+}
+
+.genre:hover {
+  transform: scale(1.15);
 }
 
 .genre-item {
@@ -361,7 +366,29 @@ hr {
 }
 
 #add-genre-to-list {
-  margin-bottom: 20px; 
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#add-genre-to-list select {
+  font-size: 16px;
+  font-family: 'Merriweather', serif;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+#add-genre-to-list button {
+  font-size: 16px;
+  font-family: 'Merriweather', serif;
+  padding: 8px 20px;
+  color: #fff;
+  background-color: #00af91;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .spinbox-logo {
@@ -372,7 +399,7 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -100px; /* Adjust this value to move the logo up or down */
+  margin-top: -100px; 
 }
 
 .spotifyProfileLink {
