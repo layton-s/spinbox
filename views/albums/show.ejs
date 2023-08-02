@@ -23,8 +23,8 @@
   <form id="add-genre-to-list" action="/albums/<%= album._id %>/genres" method="POST">
     <select name="genreId">
      
-      <%- genres.map(p => 
-        `<option value="${p._id}">${p.name}</option>`
+      <%- genres.map(g => 
+        `<option value="${g._id}">${g.name}</option>`
       ).join('') %>
     </select>
     <button type="submit">Add Genre</button>
