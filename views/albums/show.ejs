@@ -1,14 +1,20 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Title: </div>
-    <div><%= album.title %></div>
-    <div>Artist: </div>
-    <div><%= album.artist %></div>
-    <div>Release Year: </div>
-    <div><%= album.releaseYear %></div>
-    <div>Label: </div>
-    <div><%= album.label %></div>
+  <% if (album.imageUrl) { %>
+    <img src="<%= album.imageUrl %>" alt="Album Cover" class="album-cover">
+    <div class="clear"></div>
+  <% } %>
+   
+  <div>Title: </div>
+  <div><%= album.title %></div>
+  <div>Artist: </div>
+  <div><%= album.artist %></div>
+  <div>Release Year: </div>
+  <div><%= album.releaseYear %></div>
+  <div>Label: </div>
+  <div><%= album.label %></div>
+
     
   
     <div>Genres:</div>

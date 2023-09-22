@@ -35,6 +35,10 @@ const albumSchema = new Schema({
     type: String,
     required: true
   },
+  imageUrl: {
+    type: String,
+    required: false
+  },
   genreList: [{
     type: Schema.Types.ObjectId,
     ref: 'Genre'
