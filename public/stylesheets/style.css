@@ -113,6 +113,17 @@ nav > a.active {
   background-color: #009e86;
 }
 
+#add-review-form textarea {
+  width: 50vmin; /* Set the width to 100% to make the textareas expand to the container width */
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 150px;
+}
+
 
 #add-genre-form {
   background-image: linear-gradient(to right, #00af91, #00af91);
@@ -440,5 +451,12 @@ hr {
   margin: 10px;
   display: block; 
   margin: 0 auto; 
-  margin-right: -200px;
+  margin-right: -140px;
+}
+
+.genre-list-container {
+  position: absolute;
+  top: 0; /* Adjust the top position as needed */
+  right: 0; /* Adjust the right position as needed */
+  width: 140px; /* Adjust the width as needed */
 }

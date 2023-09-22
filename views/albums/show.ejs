@@ -17,14 +17,15 @@
 
     
   
-    <div>Genres:</div>
+    
+    
+  </section>
+    <div></div>
     <ul>
       <%- album.genreList.map(g => 
         `<li class ="genre-item">${g.name}</li>`
       ).join('') %>
     </ul>
-    
-  </section>
   
   <form id="add-genre-to-list" action="/albums/<%= album._id %>/genres" method="POST">
     <select name="genreId">
